@@ -13,14 +13,7 @@ export default defineConfig(({ mode }) => {
     server: {
       open: true,
       port: PORT,
-      host: true,
-      proxy: {
-        '/api/iex': {
-          target: 'https://api.iex.cloud/v1',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api\/iex/, '')
-        }
-      }
+      host: true
     },
     preview: {
       open: true,
