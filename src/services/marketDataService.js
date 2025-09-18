@@ -3,7 +3,7 @@ import axios from 'axios';
 // Market data service for fetching live prices
 class MarketDataService {
   constructor() {
-    this.baseURL = 'https://api.iex.cloud/v1';
+    this.baseURL = '/api/iex';
     this.token = import.meta.env.VITE_REACT_APP_IEX_TOKEN || 'pk_test_token'; // Use test token for demo
     this.cache = new Map();
     this.cacheTimeout = 60000; // 1 minute cache
