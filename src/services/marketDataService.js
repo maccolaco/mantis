@@ -4,7 +4,7 @@ import axios from 'axios';
 class MarketDataService {
   constructor() {
     this.baseURL = 'https://api.iex.cloud/v1';
-    this.token = process.env.REACT_APP_IEX_TOKEN || 'pk_test_token'; // Use test token for demo
+    this.token = import.meta.env.VITE_REACT_APP_IEX_TOKEN || 'pk_test_token'; // Use test token for demo
     this.cache = new Map();
     this.cacheTimeout = 60000; // 1 minute cache
   }
