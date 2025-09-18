@@ -10,7 +10,7 @@ import MainCard from 'components/MainCard';
 
 // assets
 import AnimateButton from 'components/@extended/AnimateButton';
-import { TrophyOutlined } from '@ant-design/icons';
+import { TrophyFilled } from '@ant-design/icons';
 
 // ==============================|| DRAWER CONTENT - NAVIGATION CARD ||============================== //
 
@@ -18,7 +18,7 @@ export default function NavCard() {
   return (
     <MainCard sx={{ bgcolor: 'grey.50', m: 3 }}>
       <Stack alignItems="center" spacing={2.5}>
-        <TrophyOutlined style={{ fontSize: '4rem', color: '#1677ff' }} />
+        <TrophyFilled style={{ fontSize: '4rem', color: '#1677ff' }} />
         <Stack alignItems="center">
           <Typography variant="h5">Portfolio Pro</Typography>
           <Typography variant="h6" color="secondary">

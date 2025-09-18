@@ -19,7 +19,7 @@ import portfolioService from 'services/portfolioService';
 import marketDataService from 'services/marketDataService';
 
 // assets
-import { RefreshOutlined, DownloadOutlined } from '@ant-design/icons';
+import { ReloadOutlined, DownloadOutlined } from '@ant-design/icons';
 
 export default function PortfolioDashboard() {
   const { 
@@ -125,7 +125,7 @@ export default function PortfolioDashboard() {
           <Stack direction="row" spacing={2}>
             <Button
               variant="outlined"
-              startIcon={<RefreshOutlined />}
+              startIcon={<ReloadOutlined />}
               onClick={refreshLiveData}
               disabled={refreshing}
             >

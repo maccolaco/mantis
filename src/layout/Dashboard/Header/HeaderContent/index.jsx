@@ -9,7 +9,7 @@ import Search from './Search';
 import Profile from './Profile';
 import Notification from './Notification';
 import MobileSection from './MobileSection';
-import { SettingOutlined } from '@ant-design/icons';
+import { SettingFilled } from '@ant-design/icons';
 
 // ==============================|| HEADER - CONTENT ||============================== //
 
@@ -26,7 +26,7 @@ export default function HeaderContent() {
         title="Settings"
         sx={{ color: 'text.primary', bgcolor: 'grey.100' }}
       >
-        <SettingOutlined />
+        <SettingFilled />
       </IconButton>
 
       <Notification />

@@ -22,7 +22,7 @@ import SaleReportCard from 'sections/dashboard/default/SaleReportCard';
 import OrdersTable from 'sections/dashboard/default/OrdersTable';
 
 // assets
-import { GiftOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
+import { GiftOutlined, MessageOutlined, SettingFilled } from '@ant-design/icons';
 
 import avatar1 from 'assets/images/users/avatar-1.png';
 import avatar2 from 'assets/images/users/avatar-2.png';
@@ -210,7 +210,7 @@ export default function DashboardDefault() {
             >
               <ListItemAvatar>
                 <Avatar sx={{ color: 'error.main', bgcolor: 'error.lighter' }}>
-                  <SettingOutlined />
+                  <SettingFilled />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary={<Typography variant="subtitle1">Order #988784</Typography>} secondary="7 hours ago" />

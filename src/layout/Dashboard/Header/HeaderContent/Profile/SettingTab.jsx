@@ -13,7 +13,7 @@ import Box from '@mui/material/Box';
 import { useTheme } from 'contexts/ThemeContext';
 
 // assets
-import { CommentOutlined, LockOutlined, QuestionCircleOutlined, UserOutlined, UnorderedListOutlined, BulbOutlined } from '@ant-design/icons';
+import { CommentOutlined, LockOutlined, QuestionCircleOutlined, UserOutlined, UnorderedListOutlined, BulbFilled } from '@ant-design/icons';
 
 // ==============================|| HEADER PROFILE - SETTING TAB ||============================== //
 
@@ -24,7 +24,7 @@ export default function SettingTab() {
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}>
       <ListItemButton>
         <ListItemIcon>
-          <BulbOutlined />
+          <BulbFilled />
         </ListItemIcon>
         <ListItemText primary="Dark Mode" />
         <Box sx={{ ml: 'auto' }}>

@@ -6,7 +6,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 // assets
-import { EditOutlined, ProfileOutlined, LogoutOutlined, UserOutlined, WalletOutlined } from '@ant-design/icons';
+import { EditOutlined, ProfileFilled, LogoutOutlined, UserOutlined, WalletOutlined } from '@ant-design/icons';
 
 // ==============================|| HEADER PROFILE - PROFILE TAB ||============================== //
 
@@ -28,7 +28,7 @@ export default function ProfileTab() {
 
       <ListItemButton>
         <ListItemIcon>
-          <ProfileOutlined />
+          <ProfileFilled />
         </ListItemIcon>
         <ListItemText primary="Social Profile" />
       </ListItemButton>

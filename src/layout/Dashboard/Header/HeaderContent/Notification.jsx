@@ -22,7 +22,7 @@ import IconButton from 'components/@extended/IconButton';
 import Transitions from 'components/@extended/Transitions';
 
 // assets
-import { BellOutlined, CheckCircleOutlined, GiftOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
+import { BellOutlined, CheckCircleOutlined, GiftOutlined, MessageOutlined, SettingFilled } from '@ant-design/icons';
 
 // sx styles
 const avatarSX = {
@@ -189,7 +189,7 @@ export default function Notification() {
                     >
                       <ListItemAvatar>
                         <Avatar sx={{ color: 'error.main', bgcolor: 'error.lighter' }}>
-                          <SettingOutlined />
+                          <SettingFilled />
                         </Avatar>
                       </ListItemAvatar>
                       <ListItemText

@@ -15,7 +15,7 @@ import IconButton from 'components/@extended/IconButton';
 import Transitions from 'components/@extended/Transitions';
 
 // assets
-import { MoreOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 // ==============================|| HEADER CONTENT - MOBILE ||============================== //
 
@@ -61,7 +61,7 @@ export default function MobileSection() {
           color="secondary"
           variant="light"
         >
-          <MoreOutlined />
+          <EllipsisOutlined />
         </IconButton>
       </Box>
       <Popper
