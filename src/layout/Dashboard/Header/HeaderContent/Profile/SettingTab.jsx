@@ -13,12 +13,7 @@ import Box from '@mui/material/Box';
 import { useTheme } from 'contexts/ThemeContext';
 
 // assets
-import CommentOutlined from '@ant-design/icons/CommentOutlined';
-import LockOutlined from '@ant-design/icons/LockOutlined';
-import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
-import UserOutlined from '@ant-design/icons/UserOutlined';
-import UnorderedListOutlined from '@ant-design/icons/UnorderedListOutlined';
-import BulbOutlined from '@ant-design/icons/BulbOutlined';
+import { CommentOutlined, LockOutlined, QuestionCircleOutlined, UserOutlined, UnorderedListOutlined, BulbOutlined } from '@ant-design/icons';
 
 // ==============================|| HEADER PROFILE - SETTING TAB ||============================== //
 

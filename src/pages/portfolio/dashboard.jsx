@@ -19,8 +19,7 @@ import portfolioService from 'services/portfolioService';
 import marketDataService from 'services/marketDataService';
 
 // assets
-import RefreshOutlined from '@ant-design/icons/RefreshOutlined';
-import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
+import { RefreshOutlined, DownloadOutlined } from '@ant-design/icons';
 
 export default function PortfolioDashboard() {
   const { 

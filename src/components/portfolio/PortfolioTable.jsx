@@ -19,8 +19,7 @@ import { NumericFormat } from 'react-number-format';
 import MainCard from 'components/MainCard';
 
 // assets
-import ArrowUpOutlined from '@ant-design/icons/ArrowUpOutlined';
-import ArrowDownOutlined from '@ant-design/icons/ArrowDownOutlined';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 function PnLCell({ value, percent }) {
   const isPositive = value >= 0;

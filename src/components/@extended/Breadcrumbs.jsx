@@ -14,9 +14,7 @@ import MainCard from 'components/MainCard';
 import navigation from 'menu-items';
 
 // assets
-import ApartmentOutlined from '@ant-design/icons/ApartmentOutlined';
-import HomeOutlined from '@ant-design/icons/HomeOutlined';
-import HomeFilled from '@ant-design/icons/HomeFilled';
+import { ApartmentOutlined, HomeOutlined, HomeFilled } from '@ant-design/icons';
 
 export default function Breadcrumbs({
   card = false,
