@@ -1,11 +1,11 @@
 {
-  "name": "mantis-material-free-react",
-  "version": "1.6.0",
-  "homepage": "https://mantisdashboard.com/free",
+  "name": "portfolio-risk-management",
+  "version": "1.0.0",
+  "homepage": "https://portfolio-risk-management.com",
   "author": {
-    "name": "CodedThemes",
-    "email": "codedthemes@gmail.com",
-    "url": "https://codedthemes.com/"
+    "name": "Portfolio Risk Management",
+    "email": "info@portfolio-risk-management.com",
+    "url": "https://portfolio-risk-management.com"
   },
   "scripts": {
     "start": "vite",

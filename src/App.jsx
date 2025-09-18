@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from 'routes';
 import ThemeCustomization from 'themes';
 import { ThemeProvider } from 'contexts/ThemeContext';
+import { PortfolioProvider } from 'contexts/PortfolioContext';
 
 import ScrollTop from 'components/ScrollTop';
 
@@ -12,11 +13,13 @@ import ScrollTop from 'components/ScrollTop';
 export default function App() {
   return (
     <ThemeProvider>
-      <ThemeCustomization>
-        <ScrollTop>
-          <RouterProvider router={router} />
-        </ScrollTop>
-      </ThemeCustomization>
+      <PortfolioProvider>
+        <ThemeCustomization>
+          <ScrollTop>
+            <RouterProvider router={router} />
+          </ScrollTop>
+        </ThemeCustomization>
+      </PortfolioProvider>
     </ThemeProvider>
   );
 }
