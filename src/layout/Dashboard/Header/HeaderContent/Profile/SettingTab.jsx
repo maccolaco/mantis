@@ -1,9 +1,16 @@
 // material-ui
+import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
 import Link from '@mui/material/Link';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
+// project imports
+import { useTheme } from 'contexts/ThemeContext';
 
 // assets
 import CommentOutlined from '@ant-design/icons/CommentOutlined';
@@ -11,12 +18,34 @@ import LockOutlined from '@ant-design/icons/LockOutlined';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import UserOutlined from '@ant-design/icons/UserOutlined';
 import UnorderedListOutlined from '@ant-design/icons/UnorderedListOutlined';
+import BulbOutlined from '@ant-design/icons/BulbOutlined';
 
 // ==============================|| HEADER PROFILE - SETTING TAB ||============================== //
 
 export default function SettingTab() {
+  const { mode, toggleMode } = useTheme();
+
   return (
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}>
+      <ListItemButton>
+        <ListItemIcon>
+          <BulbOutlined />
+        </ListItemIcon>
+        <ListItemText primary="Dark Mode" />
+        <Box sx={{ ml: 'auto' }}>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={mode === 'dark'}
+                onChange={toggleMode}
+                size="small"
+              />
+            }
+            label=""
+            sx={{ m: 0 }}
+          />
+        </Box>
+      </ListItemButton>
       <Link underline="none" sx={{ color: 'inherit' }} target="_blank" href="https://codedthemes.support-hub.io/">
         <ListItemButton>
           <ListItemIcon>

@@ -28,6 +28,24 @@ export default function Palette(mode, presetColor) {
   let greyAscent = ['#fafafa', '#bfbfbf', '#434343', '#1f1f1f'];
   let greyConstant = ['#fafafb', '#e6ebf1'];
 
+  if (mode === 'dark') {
+    greyPrimary = [
+      '#000000',
+      '#141414',
+      '#1f1f1f',
+      '#262626',
+      '#434343',
+      '#595959',
+      '#8c8c8c',
+      '#bfbfbf',
+      '#d9d9d9',
+      '#f0f0f0',
+      '#ffffff'
+    ];
+    greyAscent = ['#1f1f1f', '#434343', '#bfbfbf', '#fafafa'];
+    greyConstant = ['#121212', '#1e1e1e'];
+  }
+
   colors.grey = [...greyPrimary, ...greyAscent, ...greyConstant];
 
   const paletteColor = ThemeOption(colors, presetColor, mode);
@@ -41,17 +59,17 @@ export default function Palette(mode, presetColor) {
       },
       ...paletteColor,
       text: {
-        primary: paletteColor.grey[700],
-        secondary: paletteColor.grey[500],
-        disabled: paletteColor.grey[400]
+        primary: mode === 'dark' ? paletteColor.grey[300] : paletteColor.grey[700],
+        secondary: mode === 'dark' ? paletteColor.grey[500] : paletteColor.grey[500],
+        disabled: mode === 'dark' ? paletteColor.grey[600] : paletteColor.grey[400]
       },
       action: {
-        disabled: paletteColor.grey[300]
+        disabled: mode === 'dark' ? paletteColor.grey[600] : paletteColor.grey[300]
       },
-      divider: paletteColor.grey[200],
+      divider: mode === 'dark' ? paletteColor.grey[800] : paletteColor.grey[200],
       background: {
-        paper: paletteColor.grey[0],
-        default: paletteColor.grey.A50
+        paper: mode === 'dark' ? paletteColor.grey[900] : paletteColor.grey[0],
+        default: mode === 'dark' ? paletteColor.grey[800] : paletteColor.grey.A50
       }
     }
   });

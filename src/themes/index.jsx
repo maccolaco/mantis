@@ -10,11 +10,13 @@ import Palette from './palette';
 import Typography from './typography';
 import CustomShadows from './shadows';
 import componentsOverride from './overrides';
+import { useTheme as useCustomTheme } from 'contexts/ThemeContext';
 
 // ==============================|| DEFAULT THEME - MAIN ||============================== //
 
 export default function ThemeCustomization({ children }) {
-  const theme = Palette('light', 'default');
+  const { mode } = useCustomTheme();
+  const theme = Palette(mode, 'default');
 
   const themeTypography = Typography(`'Public Sans', sans-serif`);
   const themeCustomShadows = useMemo(() => CustomShadows(theme), [theme]);
@@ -42,7 +44,7 @@ export default function ThemeCustomization({ children }) {
       customShadows: themeCustomShadows,
       typography: themeTypography
     }),
-    [theme, themeTypography, themeCustomShadows]
+    [theme, themeTypography, themeCustomShadows, mode]
   );
 
   const themes = createTheme(themeOptions);
