@@ -1,6 +1,6 @@
 // ==============================|| OVERRIDES - TABLE CELL ||============================== //
 
-export default function TableCell(theme) {
+export default function TableCell(theme, textSizeScale = 1) {
   const commonCell = {
     '&:not(:last-of-type)': {
       position: 'relative',
@@ -23,8 +23,8 @@ export default function TableCell(theme) {
     MuiTableCell: {
       styleOverrides: {
         root: {
-          fontSize: '0.875rem',
-          padding: 12,
+          fontSize: `${0.875 * textSizeScale}rem`,
+          padding: 12 * textSizeScale,
           borderColor: theme.palette.divider,
           '&.cell-right': {
             justifyContent: 'flex-end',
@@ -47,16 +47,16 @@ export default function TableCell(theme) {
           }
         },
         sizeSmall: {
-          padding: 8
+          padding: 8 * textSizeScale
         },
         head: {
-          fontSize: '0.75rem',
+          fontSize: `${0.75 * textSizeScale}rem`,
           fontWeight: 700,
           textTransform: 'uppercase',
           ...commonCell
         },
         footer: {
-          fontSize: '0.75rem',
+          fontSize: `${0.75 * textSizeScale}rem`,
           textTransform: 'uppercase',
           ...commonCell
         }

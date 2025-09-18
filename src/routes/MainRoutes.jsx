@@ -6,6 +6,7 @@ import DashboardLayout from 'layout/Dashboard';
 
 // render - Portfolio
 const PortfolioDashboard = Loadable(lazy(() => import('pages/portfolio/dashboard')));
+const PortfolioSettings = Loadable(lazy(() => import('pages/portfolio/settings')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -38,7 +39,7 @@ const MainRoutes = {
         },
         {
           path: 'settings',
-          element: <PortfolioDashboard />
+          element: <PortfolioSettings />
         }
       ]
     },

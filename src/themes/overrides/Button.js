@@ -80,7 +80,7 @@ function getColorStyle({ variant, color, theme }) {
 
 // ==============================|| OVERRIDES - BUTTON ||============================== //
 
-export default function Button(theme) {
+export default function Button(theme, textSizeScale = 1) {
   const primaryDashed = getColorStyle({ variant: 'dashed', color: 'primary', theme });
   const primaryShadow = getColorStyle({ variant: 'shadow', color: 'primary', theme });
 
@@ -202,8 +202,20 @@ export default function Button(theme) {
         textWarning: getColorStyle({ variant: 'text', color: 'warning', theme }),
         sizeExtraSmall: {
           minWidth: 56,
-          fontSize: '0.625rem',
-          padding: '2px 8px'
+          fontSize: `${0.625 * textSizeScale}rem`,
+          padding: `${2 * textSizeScale}px ${8 * textSizeScale}px`
+        },
+        sizeSmall: {
+          fontSize: `${0.8125 * textSizeScale}rem`,
+          padding: `${4 * textSizeScale}px ${10 * textSizeScale}px`
+        },
+        sizeMedium: {
+          fontSize: `${0.875 * textSizeScale}rem`,
+          padding: `${6 * textSizeScale}px ${16 * textSizeScale}px`
+        },
+        sizeLarge: {
+          fontSize: `${0.9375 * textSizeScale}rem`,
+          padding: `${8 * textSizeScale}px ${22 * textSizeScale}px`
         },
         loading: {
           pointerEvents: 'none !important',

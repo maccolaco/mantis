@@ -11,14 +11,16 @@ import Typography from './typography';
 import CustomShadows from './shadows';
 import componentsOverride from './overrides';
 import { useTheme as useCustomTheme } from 'contexts/ThemeContext';
+import { useTextSize } from 'contexts/TextSizeContext';
 
 // ==============================|| DEFAULT THEME - MAIN ||============================== //
 
 export default function ThemeCustomization({ children }) {
   const { mode } = useCustomTheme();
+  const { textSizeScale } = useTextSize();
   const theme = Palette(mode, 'default');
 
-  const themeTypography = Typography(`'Public Sans', sans-serif`);
+  const themeTypography = Typography(`'Public Sans', sans-serif`, textSizeScale);
   const themeCustomShadows = useMemo(() => CustomShadows(theme), [theme]);
 
   const themeOptions = useMemo(
@@ -44,11 +46,11 @@ export default function ThemeCustomization({ children }) {
       customShadows: themeCustomShadows,
       typography: themeTypography
     }),
-    [theme, themeTypography, themeCustomShadows, mode]
+    [theme, themeTypography, themeCustomShadows, mode, textSizeScale]
   );
 
   const themes = createTheme(themeOptions);
-  themes.components = componentsOverride(themes);
+  themes.components = componentsOverride(themes, textSizeScale);
 
   return (
     <StyledEngineProvider injectFirst>

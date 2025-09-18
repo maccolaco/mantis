@@ -1,6 +1,6 @@
 // ==============================|| OVERRIDES - ICON BUTTON ||============================== //
 
-export default function IconButton(theme) {
+export default function IconButton(theme, textSizeScale = 1) {
   return {
     MuiIconButton: {
       styleOverrides: {
@@ -15,19 +15,19 @@ export default function IconButton(theme) {
           }
         },
         sizeLarge: {
-          width: theme.spacing(5.5),
-          height: theme.spacing(5.5),
-          fontSize: '1.25rem'
+          width: theme.spacing(5.5 * textSizeScale),
+          height: theme.spacing(5.5 * textSizeScale),
+          fontSize: `${1.25 * textSizeScale}rem`
         },
         sizeMedium: {
-          width: theme.spacing(4.5),
-          height: theme.spacing(4.5),
-          fontSize: '1rem'
+          width: theme.spacing(4.5 * textSizeScale),
+          height: theme.spacing(4.5 * textSizeScale),
+          fontSize: `${1 * textSizeScale}rem`
         },
         sizeSmall: {
-          width: theme.spacing(3.75),
-          height: theme.spacing(3.75),
-          fontSize: '0.75rem'
+          width: theme.spacing(3.75 * textSizeScale),
+          height: theme.spacing(3.75 * textSizeScale),
+          fontSize: `${0.75 * textSizeScale}rem`
         }
       }
     }

@@ -28,17 +28,17 @@ import Typography from './Typography';
 
 // ==============================|| OVERRIDES - MAIN ||============================== //
 
-export default function ComponentsOverrides(theme) {
+export default function ComponentsOverrides(theme, textSizeScale = 1) {
   return merge(
     Badge(theme),
-    Button(theme),
+    Button(theme, textSizeScale),
     ButtonBase(),
     CardContent(),
     Checkbox(theme),
     Chip(theme),
     Drawer(),
     FormHelperText(),
-    IconButton(theme),
+    IconButton(theme, textSizeScale),
     InputLabel(theme),
     LinearProgress(),
     Link(),
@@ -47,7 +47,7 @@ export default function ComponentsOverrides(theme) {
     OutlinedInput(theme),
     Tab(theme),
     TableBody(theme),
-    TableCell(theme),
+    TableCell(theme, textSizeScale),
     TableHead(theme),
     TableRow(),
     Tabs(),

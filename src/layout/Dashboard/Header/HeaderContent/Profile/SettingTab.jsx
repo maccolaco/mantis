@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 
 // project imports
 import { useTheme } from 'contexts/ThemeContext';
+import { useTextSize } from 'contexts/TextSizeContext';
 
 // assets
 import { CommentOutlined, LockOutlined, QuestionCircleOutlined, UserOutlined, UnorderedListOutlined, BulbFilled } from '@ant-design/icons';
@@ -19,6 +20,7 @@ import { CommentOutlined, LockOutlined, QuestionCircleOutlined, UserOutlined, Un
 
 export default function SettingTab() {
   const { mode, toggleMode } = useTheme();
+  const { textSizeLabel } = useTextSize();
 
   return (
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}>
@@ -40,6 +42,15 @@ export default function SettingTab() {
             sx={{ m: 0 }}
           />
         </Box>
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <BulbFilled />
+        </ListItemIcon>
+        <ListItemText 
+          primary="Text Size" 
+          secondary={textSizeLabel}
+        />
       </ListItemButton>
       <Link underline="none" sx={{ color: 'inherit' }} target="_blank" href="https://codedthemes.support-hub.io/">
         <ListItemButton>
