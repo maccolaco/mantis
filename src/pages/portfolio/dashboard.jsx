@@ -20,6 +20,7 @@ import marketDataService from 'services/marketDataService';
 
 // assets
 import { ReloadOutlined, DownloadOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 
 export default function PortfolioDashboard() {
   const { 
@@ -89,6 +90,13 @@ export default function PortfolioDashboard() {
     console.log('Export report functionality to be implemented');
   };
 
+  const handleRemovePortfolio = () => {
+    if (window.confirm('Are you sure you want to remove this portfolio? This action cannot be undone.')) {
+      dispatch({ type: actions.SET_CURRENT_PORTFOLIO, payload: null });
+      dispatch({ type: actions.UPDATE_RISK_METRICS, payload: null });
+      dispatch({ type: actions.UPDATE_LIVE_DATA, payload: {} });
+    }
+  };
   if (!currentPortfolio) {
     return (
       <Grid container spacing={3}>
@@ -137,6 +145,14 @@ export default function PortfolioDashboard() {
               onClick={handleExportReport}
             >
               Export Report
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              startIcon={<DeleteOutlined />}
+              onClick={handleRemovePortfolio}
+            >
+              Remove Portfolio
             </Button>
           </Stack>
         </Stack>
