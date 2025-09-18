@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
 
+// material-ui
+import IconButton from '@mui/material/IconButton';
+
 // project imports
 import DrawerHeaderStyled from './DrawerHeaderStyled';
-import Logo from 'components/logo';
+import { handlerDrawerOpen } from 'api/menu';
+
+// assets
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 // ==============================|| DRAWER HEADER ||============================== //
 
@@ -18,7 +24,19 @@ export default function DrawerHeader({ open }) {
         paddingLeft: open ? '24px' : 0
       }}
     >
-      <Logo isIcon={!open} sx={{ width: open ? 'auto' : 35, height: 35 }} />
+      <IconButton
+        aria-label="toggle drawer"
+        onClick={() => handlerDrawerOpen(!open)}
+        color="secondary"
+        variant="light"
+        sx={(theme) => ({
+          color: 'text.primary',
+          bgcolor: 'grey.100',
+          ...theme.applyStyles('dark', { bgcolor: 'background.default' })
+        })}
+      >
+        {!open ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </IconButton>
     </DrawerHeaderStyled>
   );
 }
