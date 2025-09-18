@@ -150,9 +150,9 @@ class PortfolioService {
   // Generate sample portfolio for demo
   generateSamplePortfolio() {
     const sampleHoldings = [
-      { symbol: 'AAPL', quantity: 100, price: 175.50, sector: 'Technology' },
+      { symbol: 'AAPL', quantity: 100, price: 238.99, sector: 'Technology' },
       { symbol: 'GOOGL', quantity: 50, price: 142.30, sector: 'Technology' },
-      { symbol: 'MSFT', quantity: 75, price: 378.85, sector: 'Technology' },
+      { symbol: 'MSFT', quantity: 75, price: 510.02, sector: 'Technology' },
       { symbol: 'AMZN', quantity: 25, price: 155.20, sector: 'Consumer Discretionary' },
       { symbol: 'TSLA', quantity: 30, price: 248.50, sector: 'Consumer Discretionary' },
       { symbol: 'JPM', quantity: 40, price: 168.75, sector: 'Financials' },

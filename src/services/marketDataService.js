@@ -8,9 +8,9 @@ class MarketDataService {
     
     // Base prices for consistent mock data
     this.basePrices = {
-      'AAPL': 175.50,
+      'AAPL': 238.99,
       'GOOGL': 142.30,
-      'MSFT': 378.85,
+      'MSFT': 510.02,
       'AMZN': 155.20,
       'TSLA': 248.50,
       'JPM': 168.75,
@@ -50,8 +50,8 @@ class MarketDataService {
   getMockPrice(symbol) {
     const basePrice = this.basePrices[symbol] || (100 + Math.random() * 400);
     
-    // Generate realistic price movement (±5% from base price)
-    const priceVariation = (Math.random() - 0.5) * 0.1; // ±5%
+    // Generate realistic price movement (±2% from base price for more accuracy)
+    const priceVariation = (Math.random() - 0.5) * 0.04; // ±2%
     const currentPrice = basePrice * (1 + priceVariation);
     const change = currentPrice - basePrice;
     const changePercent = change / basePrice;
