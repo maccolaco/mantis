@@ -56,10 +56,10 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
           title="Total P&L"
           count={
             <NumericFormat
-              value={Math.abs(totalPnL)}
+              value={totalPnL}
               displayType="text"
               thousandSeparator
-              prefix={totalPnL >= 0 ? '+$' : '-$'}
+              prefix="$"
               decimalScale={0}
             />
           }
