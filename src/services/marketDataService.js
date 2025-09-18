@@ -93,7 +93,21 @@ class MarketDataService {
         }
       );
 
-      return response.data.map(item => ({
+      // Handle different response data structures
+      let historicalData = response.data;
+      
+      // If response.data is not an array, check if it's nested under the symbol key
+      if (!Array.isArray(historicalData)) {
+        historicalData = response.data[symbol] || [];
+      }
+      
+      // Ensure we have an array before calling map
+      if (!Array.isArray(historicalData)) {
+        console.warn(`Historical data for ${symbol} is not in expected format, using mock data`);
+        return this.getMockHistoricalData(symbol);
+      }
+      
+      return historicalData.map(item => ({
         date: item.date,
         close: item.close,
         volume: item.volume,
