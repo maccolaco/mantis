@@ -5,6 +5,7 @@ import {
   TableOutlined,
   SettingOutlined,
   FileTextOutlined
+  ExperimentOutlined
 } from '@ant-design/icons';
 
 // icons
@@ -13,7 +14,8 @@ const icons = {
   PieChartOutlined,
   TableOutlined,
   SettingOutlined,
-  FileTextOutlined
+  FileTextOutlined,
+  ExperimentOutlined
 };
 
 // ==============================|| MENU ITEMS - PORTFOLIO ||============================== //
@@ -33,10 +35,10 @@ const portfolio = {
     },
     {
       id: 'portfolio-analytics',
-      title: 'Analytics',
+      title: 'Risk Analytics',
       type: 'item',
       url: '/portfolio/analytics',
-      icon: icons.PieChartOutlined
+      icon: icons.ExperimentOutlined
     },
     {
       id: 'portfolio-holdings',

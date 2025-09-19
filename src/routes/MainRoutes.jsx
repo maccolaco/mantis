@@ -6,6 +6,9 @@ import DashboardLayout from 'layout/Dashboard';
 
 // render - Portfolio
 const PortfolioDashboard = Loadable(lazy(() => import('pages/portfolio/dashboard')));
+const PortfolioAnalytics = Loadable(lazy(() => import('pages/portfolio/analytics')));
+const PortfolioHoldings = Loadable(lazy(() => import('pages/portfolio/holdings')));
+const PortfolioReports = Loadable(lazy(() => import('pages/portfolio/reports')));
 const PortfolioSettings = Loadable(lazy(() => import('pages/portfolio/settings')));
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -27,15 +30,15 @@ const MainRoutes = {
         },
         {
           path: 'analytics',
-          element: <PortfolioDashboard />
+          element: <PortfolioAnalytics />
         },
         {
           path: 'holdings',
-          element: <PortfolioDashboard />
+          element: <PortfolioHoldings />
         },
         {
           path: 'reports',
-          element: <PortfolioDashboard />
+          element: <PortfolioReports />
         },
         {
           path: 'settings',
