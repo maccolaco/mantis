@@ -4,7 +4,7 @@ import {
   PieChartOutlined,
   TableOutlined,
   SettingOutlined,
-  FileTextOutlined
+  FileTextOutlined,
   ExperimentOutlined
 } from '@ant-design/icons';
 
