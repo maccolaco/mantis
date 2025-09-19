@@ -38,6 +38,9 @@ export default function PortfolioDashboard() {
   const [refreshing, setRefreshing] = useState(false);
   const [lastUpdate, setLastUpdate] = useState(null);
 
+  // Set refresh interval to 10 seconds
+  const REFRESH_INTERVAL = 10000; // 10 seconds
+
   // Auto-refresh live data
   useEffect(() => {
     let interval;
@@ -49,13 +52,13 @@ export default function PortfolioDashboard() {
       // Set up interval
       interval = setInterval(() => {
         refreshLiveData();
-      }, preferences.refreshInterval);
+      }, REFRESH_INTERVAL);
     }
 
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [currentPortfolio, preferences.refreshInterval]);
+  }, [currentPortfolio]);
 
   // Calculate risk metrics when portfolio or live data changes
   useEffect(() => {
@@ -141,7 +144,7 @@ export default function PortfolioDashboard() {
                 </Typography>
                 {lastUpdate && (
                   <Typography variant="caption" color="text.secondary">
-                    Last updated: {lastUpdate.toLocaleTimeString()}
+                    Last updated: {lastUpdate.toLocaleTimeString()} (refreshes every 10 seconds)
                   </Typography>
                 )}
               </Box>

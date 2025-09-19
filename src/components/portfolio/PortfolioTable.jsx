@@ -39,7 +39,7 @@ function PnLCell({ value, percent }) {
           fixedDecimalScale
         />
         <Typography variant="caption" color={`${color}.main`} sx={{ ml: 1 }}>
-          ({(percent * 100).toFixed(2)}%)
+          ({percent >= 0 ? '+' : ''}{(percent * 100).toFixed(2)}%)
         </Typography>
       </Box>
     </Box>
