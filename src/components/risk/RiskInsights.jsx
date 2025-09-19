@@ -21,7 +21,7 @@ import {
   ExpandMoreOutlined,
   CheckCircleOutlined,
   WarningOutlined,
-  ErrorOutlined,
+  ExclamationCircleOutlined,
   InfoOutlined,
   BulbOutlined
 } from '@ant-design/icons';
@@ -44,7 +44,7 @@ export default function RiskInsights({ insights }) {
       case 'warning':
         return <WarningOutlined style={{ color: 'orange' }} />;
       case 'error':
-        return <ErrorOutlined style={{ color: 'red' }} />;
+        return <ExclamationCircleOutlined style={{ color: 'red' }} />;
       default:
         return <InfoOutlined style={{ color: 'blue' }} />;
     }
