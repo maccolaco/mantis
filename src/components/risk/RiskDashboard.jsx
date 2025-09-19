@@ -30,8 +30,8 @@ import {
   CalculatorOutlined, 
   ExperimentOutlined, 
   AlertOutlined,
-  TrendingUpOutlined,
-  TrendingDownOutlined
+  ArrowUpOutlined,
+  ArrowDownOutlined
 } from '@ant-design/icons';
 
 export default function RiskDashboard() {
@@ -259,9 +259,9 @@ export default function RiskDashboard() {
                     </Typography>
                     <Stack direction="row" spacing={1} alignItems="center">
                       {riskMetrics.beta > 1 ? (
-                        <TrendingUpOutlined style={{ color: 'orange' }} />
+                        <ArrowUpOutlined style={{ color: 'orange' }} />
                       ) : (
-                        <TrendingDownOutlined style={{ color: 'green' }} />
+                        <ArrowDownOutlined style={{ color: 'green' }} />
                       )}
                       <Chip 
                         label={riskMetrics.beta > 1 ? 'High Beta' : 'Low Beta'} 
