@@ -4,12 +4,8 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import DashboardLayout from 'layout/Dashboard';
 
-// render - Portfolio
-const PortfolioDashboard = Loadable(lazy(() => import('pages/portfolio/dashboard')));
-const PortfolioAnalytics = Loadable(lazy(() => import('pages/portfolio/analytics')));
-const PortfolioHoldings = Loadable(lazy(() => import('pages/portfolio/holdings')));
-const PortfolioReports = Loadable(lazy(() => import('pages/portfolio/reports')));
-const PortfolioSettings = Loadable(lazy(() => import('pages/portfolio/settings')));
+// render - sample page
+const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -19,33 +15,8 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <PortfolioDashboard />
-    },
-    {
-      path: 'portfolio',
-      children: [
-        {
-          path: 'dashboard',
-          element: <PortfolioDashboard />
-        },
-        {
-          path: 'analytics',
-          element: <PortfolioAnalytics />
-        },
-        {
-          path: 'holdings',
-          element: <PortfolioHoldings />
-        },
-        {
-          path: 'reports',
-          element: <PortfolioReports />
-        },
-        {
-          path: 'settings',
-          element: <PortfolioSettings />
-        }
-      ]
-    },
+      element: <SamplePage />
+    }
   ]
 };
 

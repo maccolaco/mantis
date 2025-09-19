@@ -1,10 +1,10 @@
 // project import
-import portfolio from './portfolio';
+// No menu items - empty navigation
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [portfolio]
+  items: []
 };
 
 export default menuItems;

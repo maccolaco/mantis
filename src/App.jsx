@@ -5,7 +5,6 @@ import router from 'routes';
 import ThemeCustomization from 'themes';
 import { ThemeProvider } from 'contexts/ThemeContext';
 import { TextSizeProvider } from 'contexts/TextSizeContext';
-import { PortfolioProvider } from 'contexts/PortfolioContext';
 
 import ScrollTop from 'components/ScrollTop';
 
@@ -15,13 +14,11 @@ export default function App() {
   return (
     <ThemeProvider>
       <TextSizeProvider>
-        <PortfolioProvider>
-          <ThemeCustomization>
-            <ScrollTop>
-              <RouterProvider router={router} />
-            </ScrollTop>
-          </ThemeCustomization>
-        </PortfolioProvider>
+        <ThemeCustomization>
+          <ScrollTop>
+            <RouterProvider router={router} />
+          </ScrollTop>
+        </ThemeCustomization>
       </TextSizeProvider>
     </ThemeProvider>
   );
