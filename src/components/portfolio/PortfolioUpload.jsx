@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 // project imports
 import { usePortfolio } from 'contexts/PortfolioContext';
 import portfolioService from 'services/portfolioService';
+import MainCard from 'components/MainCard';
 
 // assets
 import CloudUploadOutlined from '@ant-design/icons/CloudUploadOutlined';
