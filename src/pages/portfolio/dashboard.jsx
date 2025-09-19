@@ -100,7 +100,7 @@ export default function PortfolioDashboard() {
   if (!currentPortfolio) {
     return (
       <Grid container spacing={3}>
-        <Grid size={12}>
+        <Grid xs={12}>
           <Typography variant="h4" gutterBottom>
             Portfolio Risk Management
           </Typography>
@@ -108,7 +108,7 @@ export default function PortfolioDashboard() {
             Upload your portfolio to start analyzing risk metrics and performance.
           </Typography>
         </Grid>
-        <Grid size={{ xs: 12, md: 8, lg: 6 }}>
+        <Grid xs={12} md={8} lg={6}>
           <PortfolioUpload onUploadComplete={handleUploadComplete} />
         </Grid>
       </Grid>
@@ -118,7 +118,7 @@ export default function PortfolioDashboard() {
   return (
     <Grid container spacing={3}>
       {/* Header */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <Box>
             <Typography variant="h4" gutterBottom>
@@ -159,25 +159,25 @@ export default function PortfolioDashboard() {
       </Grid>
 
       {/* Risk Metrics */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <RiskMetrics riskMetrics={riskMetrics} preferences={preferences} />
       </Grid>
 
       {/* Charts Row */}
-      <Grid size={{ xs: 12, lg: 8 }}>
+      <Grid xs={12} lg={8}>
         <PortfolioPerformance portfolio={currentPortfolio} />
       </Grid>
-      <Grid size={{ xs: 12, lg: 4 }}>
+      <Grid xs={12} lg={4}>
         <SectorAllocation riskMetrics={riskMetrics} />
       </Grid>
 
       {/* Portfolio Table */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <PortfolioTable portfolio={currentPortfolio} riskMetrics={riskMetrics} />
       </Grid>
 
       {/* Upload New Portfolio */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <Alert severity="info" sx={{ mb: 2 }}>
           Want to analyze a different portfolio? Upload a new file below.
         </Alert>

@@ -59,7 +59,7 @@ export default function AuthLogin({ isDemo = false }) {
         {({ errors, handleBlur, handleChange, touched, values }) => (
           <form noValidate>
             <Grid container spacing={3}>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="email-login">Email Address</InputLabel>
                   <OutlinedInput
@@ -80,7 +80,7 @@ export default function AuthLogin({ isDemo = false }) {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="password-login">Password</InputLabel>
                   <OutlinedInput
@@ -114,7 +114,7 @@ export default function AuthLogin({ isDemo = false }) {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid sx={{ mt: -1 }} size={12}>
+              <Grid xs={12} sx={{ mt: -1 }}>
                 <Stack direction="row" sx={{ gap: 2, alignItems: 'baseline', justifyContent: 'space-between' }}>
                   <FormControlLabel
                     control={
@@ -133,7 +133,7 @@ export default function AuthLogin({ isDemo = false }) {
                   </Link>
                 </Stack>
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <AnimateButton>
                   <Button fullWidth size="large" variant="contained" color="primary">
                     Login

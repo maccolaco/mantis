@@ -76,7 +76,7 @@ export default function PortfolioSettings() {
 
   return (
     <Grid container spacing={3}>
-      <Grid size={12}>
+      <Grid xs={12}>
         <Typography variant="h4" gutterBottom>
           Settings
         </Typography>
@@ -86,7 +86,7 @@ export default function PortfolioSettings() {
       </Grid>
 
       {saved && (
-        <Grid size={12}>
+        <Grid xs={12}>
           <Alert severity="success" onClose={() => setSaved(false)}>
             Settings saved successfully!
           </Alert>
@@ -94,7 +94,7 @@ export default function PortfolioSettings() {
       )}
 
       {/* Display Settings */}
-      <Grid size={{ xs: 12, lg: 6 }}>
+      <Grid xs={12} lg={6}>
         <MainCard title="Display Settings">
           <Stack spacing={3}>
             {/* Theme Mode */}
@@ -168,7 +168,7 @@ export default function PortfolioSettings() {
       </Grid>
 
       {/* Portfolio Settings */}
-      <Grid size={{ xs: 12, lg: 6 }}>
+      <Grid xs={12} lg={6}>
         <MainCard title="Portfolio Settings">
           <Stack spacing={3}>
             {/* Refresh Interval */}
@@ -256,7 +256,7 @@ export default function PortfolioSettings() {
       </Grid>
 
       {/* Action Buttons */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <Stack direction="row" spacing={2} justifyContent="flex-end">
           <Button
             variant="outlined"
@@ -276,7 +276,7 @@ export default function PortfolioSettings() {
       </Grid>
 
       {/* Preview Card */}
-      <Grid size={12}>
+      <Grid xs={12}>
         <MainCard title="Preview">
           <Typography variant="body1" paragraph>
             This is a preview of how text will appear with your current settings. 

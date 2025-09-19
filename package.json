@@ -37,6 +37,7 @@
     "framer-motion": "12.8.2",
     "lodash-es": "4.17.21",
     "papaparse": "^5.4.1",
+    "papaparse": "^5.4.1",
     "react": "19.1.0",
     "react-device-detect": "2.2.3",
     "react-dom": "19.1.0",

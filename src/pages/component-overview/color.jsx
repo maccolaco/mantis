@@ -50,7 +50,7 @@ function ColorBox({ bgcolor, title, data, dark, main }) {
 export default function ComponentColor() {
   return (
     <Grid container spacing={3}>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Primary Color">
           <Stack>
             <ColorBox bgcolor="primary.lighter" data={{ label: 'Blue-1', color: '#e6f7ff' }} title="primary.lighter" dark />
@@ -66,7 +66,7 @@ export default function ComponentColor() {
           </Stack>
         </MainCard>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Secondary Color">
           <Stack>
             <ColorBox bgcolor="secondary.lighter" data={{ label: 'Grey-1', color: '#fafafa' }} title="secondary.lighter" dark />
@@ -82,7 +82,7 @@ export default function ComponentColor() {
           </Stack>
         </MainCard>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Other Color">
           <Stack>
             <ColorBox bgcolor="secondary.A100" data={{ label: 'Grey-A1', color: '#ffffff' }} title="secondary.A100" dark />
@@ -91,7 +91,7 @@ export default function ComponentColor() {
           </Stack>
         </MainCard>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Success Color">
           <Stack>
             <ColorBox bgcolor="success.lighter" data={{ label: 'Green-1', color: '#f6ffed' }} title="success.lighter" dark />
@@ -102,7 +102,7 @@ export default function ComponentColor() {
           </Stack>
         </MainCard>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Error Color">
           <Stack>
             <ColorBox bgcolor="error.lighter" data={{ label: 'Red-1', color: '#fff1f0' }} title="error.lighter" dark />
@@ -113,7 +113,7 @@ export default function ComponentColor() {
           </Stack>
         </MainCard>
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+      <Grid xs={12} sm={6} md={4}>
         <MainCard title="Warning Color">
           <Stack>
             <ColorBox bgcolor="warning.lighter" data={{ label: 'Gold-1', color: '#fffbe6' }} title="warning.lighter" dark />

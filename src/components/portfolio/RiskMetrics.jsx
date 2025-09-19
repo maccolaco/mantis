@@ -35,7 +35,7 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
 
   return (
     <Grid container spacing={3}>
-      <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+      <Grid xs={12} sm={6} md={3}>
         <AnalyticEcommerce
           title="Total Portfolio Value"
           count={
@@ -51,7 +51,7 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+      <Grid xs={12} sm={6} md={3}>
         <AnalyticEcommerce
           title="Total P&L"
           count={
@@ -70,7 +70,7 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+      <Grid xs={12} sm={6} md={3}>
         <AnalyticEcommerce
           title="Max Concentration"
           count={`${(maxConcentration * 100).toFixed(1)}%`}
@@ -79,7 +79,7 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+      <Grid xs={12} sm={6} md={3}>
         <AnalyticEcommerce
           title="Portfolio Volatility"
           count={`${(volatility * 100).toFixed(1)}%`}
@@ -89,7 +89,7 @@ export default function RiskMetrics({ riskMetrics, preferences }) {
       </Grid>
 
       {(concentrationRisk || volatilityRisk) && (
-        <Grid size={12}>
+        <Grid xs={12}>
           <Alert severity="warning">
             <Typography variant="subtitle2" gutterBottom>
               Risk Alerts:

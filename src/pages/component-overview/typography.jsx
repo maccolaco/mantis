@@ -14,7 +14,7 @@ import MainCard from 'components/MainCard';
 export default function ComponentTypography() {
   return (
     <Grid container spacing={3}>
-      <Grid size={{ xs: 12, lg: 6 }}>
+      <Grid xs={12} lg={6}>
         <Stack sx={{ gap: 3 }}>
           <MainCard title="Basic">
             <Stack sx={{ gap: 0.75, mt: -1.5 }}>
@@ -131,7 +131,7 @@ export default function ComponentTypography() {
           </MainCard>
         </Stack>
       </Grid>
-      <Grid size={{ xs: 12, lg: 6 }}>
+      <Grid xs={12} lg={6}>
         <Stack sx={{ gap: 3 }}>
           <MainCard title="Alignment">
             <Typography variant="body2" gutterBottom>

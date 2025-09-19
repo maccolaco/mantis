@@ -15,7 +15,7 @@ export default function Login() {
   return (
     <AuthWrapper>
       <Grid container spacing={3}>
-        <Grid size={12}>
+        <Grid xs={12}>
           <Stack direction="row" sx={{ alignItems: 'baseline', justifyContent: 'space-between', mb: { xs: -0.5, sm: 0.5 } }}>
             <Typography variant="h3">Login</Typography>
             <Typography component={Link} to={'/register'} variant="body1" sx={{ textDecoration: 'none' }} color="primary">
@@ -23,7 +23,7 @@ export default function Login() {
             </Typography>
           </Stack>
         </Grid>
-        <Grid size={12}>
+        <Grid xs={12}>
           <AuthLogin />
         </Grid>
       </Grid>

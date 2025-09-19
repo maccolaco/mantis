@@ -73,7 +73,7 @@ export default function AuthRegister() {
         {({ errors, handleBlur, handleChange, touched, values }) => (
           <form noValidate>
             <Grid container spacing={3}>
-              <Grid size={{ xs: 12, md: 6 }}>
+              <Grid xs={12} md={6}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="firstname-signup">First Name*</InputLabel>
                   <OutlinedInput
@@ -94,7 +94,7 @@ export default function AuthRegister() {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid size={{ xs: 12, md: 6 }}>
+              <Grid xs={12} md={6}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="lastname-signup">Last Name*</InputLabel>
                   <OutlinedInput
@@ -115,7 +115,7 @@ export default function AuthRegister() {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="company-signup">Company</InputLabel>
                   <OutlinedInput
@@ -135,7 +135,7 @@ export default function AuthRegister() {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="email-signup">Email Address*</InputLabel>
                   <OutlinedInput
@@ -156,7 +156,7 @@ export default function AuthRegister() {
                   </FormHelperText>
                 )}
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Stack sx={{ gap: 1 }}>
                   <InputLabel htmlFor="password-signup">Password</InputLabel>
                   <OutlinedInput
@@ -205,7 +205,7 @@ export default function AuthRegister() {
                   </Grid>
                 </FormControl>
               </Grid>
-              <Grid size={12}>
+              <Grid xs={12}>
                 <Typography variant="body2">
                   By Signing up, you agree to our &nbsp;
                   <Link variant="subtitle2" component={RouterLink} to="#">
@@ -218,11 +218,11 @@ export default function AuthRegister() {
                 </Typography>
               </Grid>
               {errors.submit && (
-                <Grid size={12}>
+                <Grid xs={12}>
                   <FormHelperText error>{errors.submit}</FormHelperText>
                 </Grid>
               )}
-              <Grid size={12}>
+              <Grid xs={12}>
                 <AnimateButton>
                   <Button fullWidth size="large" variant="contained" color="primary">
                     Create Account
