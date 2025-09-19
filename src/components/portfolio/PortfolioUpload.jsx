@@ -91,10 +91,10 @@ export default function PortfolioUpload({ onUploadComplete }) {
   };
 
   return (
-    <Card>
-      <CardContent>
+    <MainCard title="Upload Portfolio">
+      <Box>
         <Typography variant="h6" gutterBottom>
-          Upload Portfolio
+          Choose Portfolio File
         </Typography>
         
         {error && (
@@ -163,8 +163,8 @@ export default function PortfolioUpload({ onUploadComplete }) {
             Load Sample Portfolio
           </Button>
         </Stack>
-      </CardContent>
-    </Card>
+      </Box>
+    </MainCard>
   );
 }
 

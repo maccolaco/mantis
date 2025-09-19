@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 
 // project imports
 import { usePortfolio } from 'contexts/PortfolioContext';
@@ -15,6 +16,7 @@ import PortfolioTable from 'components/portfolio/PortfolioTable';
 import RiskMetrics from 'components/portfolio/RiskMetrics';
 import SectorAllocation from 'components/portfolio/SectorAllocation';
 import PortfolioPerformance from 'components/portfolio/PortfolioPerformance';
+import MainCard from 'components/MainCard';
 import portfolioService from 'services/portfolioService';
 import marketDataService from 'services/marketDataService';
 
@@ -99,90 +101,108 @@ export default function PortfolioDashboard() {
   };
   if (!currentPortfolio) {
     return (
-      <Grid container spacing={3}>
-        <Grid xs={12}>
-          <Typography variant="h4" gutterBottom>
-            Portfolio Risk Management
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Upload your portfolio to start analyzing risk metrics and performance.
-          </Typography>
+      <Box sx={{ p: 3 }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <MainCard>
+              <Box sx={{ textAlign: 'center', py: 4 }}>
+                <Typography variant="h4" gutterBottom>
+                  Portfolio Risk Management
+                </Typography>
+                <Typography variant="body1" color="text.secondary" paragraph>
+                  Upload your portfolio to start analyzing risk metrics and performance.
+                </Typography>
+              </Box>
+            </MainCard>
+          </Grid>
+          <Grid item xs={12} md={8} lg={6} sx={{ mx: 'auto' }}>
+            <PortfolioUpload onUploadComplete={handleUploadComplete} />
+          </Grid>
         </Grid>
-        <Grid xs={12} md={8} lg={6}>
-          <PortfolioUpload onUploadComplete={handleUploadComplete} />
-        </Grid>
-      </Grid>
+      </Box>
     );
   }
 
   return (
-    <Grid container spacing={3}>
-      {/* Header */}
-      <Grid xs={12}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Box>
-            <Typography variant="h4" gutterBottom>
-              {currentPortfolio.name}
-            </Typography>
-            {lastUpdate && (
-              <Typography variant="caption" color="text.secondary">
-                Last updated: {lastUpdate.toLocaleTimeString()}
-              </Typography>
-            )}
-          </Box>
-          <Stack direction="row" spacing={2}>
-            <Button
-              variant="outlined"
-              startIcon={<ReloadOutlined />}
-              onClick={refreshLiveData}
-              disabled={refreshing}
+    <Box sx={{ p: 3 }}>
+      <Grid container spacing={3}>
+        {/* Header */}
+        <Grid item xs={12}>
+          <MainCard>
+            <Stack 
+              direction={{ xs: 'column', md: 'row' }} 
+              justifyContent="space-between" 
+              alignItems={{ xs: 'flex-start', md: 'center' }}
+              spacing={2}
             >
-              {refreshing ? 'Refreshing...' : 'Refresh'}
-            </Button>
-            <Button
-              variant="outlined"
-              startIcon={<DownloadOutlined />}
-              onClick={handleExportReport}
-            >
-              Export Report
-            </Button>
-            <Button
-              variant="outlined"
-              color="error"
-              startIcon={<DeleteOutlined />}
-              onClick={handleRemovePortfolio}
-            >
-              Remove Portfolio
-            </Button>
-          </Stack>
-        </Stack>
-      </Grid>
+              <Box>
+                <Typography variant="h4" gutterBottom>
+                  {currentPortfolio.name}
+                </Typography>
+                {lastUpdate && (
+                  <Typography variant="caption" color="text.secondary">
+                    Last updated: {lastUpdate.toLocaleTimeString()}
+                  </Typography>
+                )}
+              </Box>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<ReloadOutlined />}
+                  onClick={refreshLiveData}
+                  disabled={refreshing}
+                >
+                  {refreshing ? 'Refreshing...' : 'Refresh'}
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<DownloadOutlined />}
+                  onClick={handleExportReport}
+                >
+                  Export Report
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  color="error"
+                  startIcon={<DeleteOutlined />}
+                  onClick={handleRemovePortfolio}
+                >
+                  Remove Portfolio
+                </Button>
+              </Stack>
+            </Stack>
+          </MainCard>
+        </Grid>
 
-      {/* Risk Metrics */}
-      <Grid xs={12}>
-        <RiskMetrics riskMetrics={riskMetrics} preferences={preferences} />
-      </Grid>
+        {/* Risk Metrics */}
+        <Grid item xs={12}>
+          <RiskMetrics riskMetrics={riskMetrics} preferences={preferences} />
+        </Grid>
 
-      {/* Charts Row */}
-      <Grid xs={12} lg={8}>
-        <PortfolioPerformance portfolio={currentPortfolio} />
-      </Grid>
-      <Grid xs={12} lg={4}>
-        <SectorAllocation riskMetrics={riskMetrics} />
-      </Grid>
+        {/* Charts Row */}
+        <Grid item xs={12} lg={8}>
+          <PortfolioPerformance portfolio={currentPortfolio} />
+        </Grid>
+        <Grid item xs={12} lg={4}>
+          <SectorAllocation riskMetrics={riskMetrics} />
+        </Grid>
 
-      {/* Portfolio Table */}
-      <Grid xs={12}>
-        <PortfolioTable portfolio={currentPortfolio} riskMetrics={riskMetrics} />
-      </Grid>
+        {/* Portfolio Table */}
+        <Grid item xs={12}>
+          <PortfolioTable portfolio={currentPortfolio} riskMetrics={riskMetrics} />
+        </Grid>
 
-      {/* Upload New Portfolio */}
-      <Grid xs={12}>
-        <Alert severity="info" sx={{ mb: 2 }}>
-          Want to analyze a different portfolio? Upload a new file below.
-        </Alert>
-        <PortfolioUpload onUploadComplete={handleUploadComplete} />
+        {/* Upload New Portfolio */}
+        <Grid item xs={12}>
+          <Alert severity="info" sx={{ mb: 2 }}>
+            Want to analyze a different portfolio? Upload a new file below.
+          </Alert>
+          <PortfolioUpload onUploadComplete={handleUploadComplete} />
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 }

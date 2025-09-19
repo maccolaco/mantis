@@ -75,222 +75,226 @@ export default function PortfolioSettings() {
   const textSizeOptions = getAllTextSizes();
 
   return (
-    <Grid container spacing={3}>
-      <Grid xs={12}>
-        <Typography variant="h4" gutterBottom>
-          Settings
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          Customize your portfolio management experience
-        </Typography>
-      </Grid>
-
-      {saved && (
-        <Grid xs={12}>
-          <Alert severity="success" onClose={() => setSaved(false)}>
-            Settings saved successfully!
-          </Alert>
+    <Box sx={{ p: 3 }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <MainCard>
+            <Typography variant="h4" gutterBottom>
+              Settings
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Customize your portfolio management experience
+            </Typography>
+          </MainCard>
         </Grid>
-      )}
 
-      {/* Display Settings */}
-      <Grid xs={12} lg={6}>
-        <MainCard title="Display Settings">
-          <Stack spacing={3}>
-            {/* Theme Mode */}
-            <Box>
-              <FormControl component="fieldset">
-                <FormLabel component="legend">
-                  <Typography variant="subtitle1" gutterBottom>
-                    Theme Mode
+        {saved && (
+          <Grid item xs={12}>
+            <Alert severity="success" onClose={() => setSaved(false)}>
+              Settings saved successfully!
+            </Alert>
+          </Grid>
+        )}
+
+        {/* Display Settings */}
+        <Grid item xs={12} lg={6}>
+          <MainCard title="Display Settings">
+            <Stack spacing={3}>
+              {/* Theme Mode */}
+              <Box>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">
+                    <Typography variant="subtitle1" gutterBottom>
+                      Theme Mode
+                    </Typography>
+                  </FormLabel>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={mode === 'dark'}
+                        onChange={toggleMode}
+                        color="primary"
+                      />
+                    }
+                    label={mode === 'dark' ? 'Dark Mode' : 'Light Mode'}
+                  />
+                </FormControl>
+              </Box>
+
+              <Divider />
+
+              {/* Text Size */}
+              <Box>
+                <FormControl component="fieldset" fullWidth>
+                  <FormLabel component="legend">
+                    <Typography variant="subtitle1" gutterBottom>
+                      Text Size
+                    </Typography>
+                  </FormLabel>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>
+                    Current: {textSizeLabel}
                   </Typography>
-                </FormLabel>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      checked={mode === 'dark'}
-                      onChange={toggleMode}
-                      color="primary"
-                    />
-                  }
-                  label={mode === 'dark' ? 'Dark Mode' : 'Light Mode'}
-                />
-              </FormControl>
-            </Box>
+                  <RadioGroup
+                    value={textSize}
+                    onChange={(e) => changeTextSize(e.target.value)}
+                    name="text-size-group"
+                  >
+                    {textSizeOptions.map((option) => (
+                      <FormControlLabel
+                        key={option.value}
+                        value={option.value}
+                        control={<Radio />}
+                        label={
+                          <Box>
+                            <Typography 
+                              variant="body2" 
+                              sx={{ fontSize: `${0.875 * option.scale}rem` }}
+                            >
+                              {option.label}
+                            </Typography>
+                            <Typography 
+                              variant="caption" 
+                              color="text.secondary"
+                              sx={{ fontSize: `${0.75 * option.scale}rem` }}
+                            >
+                              Sample text at {Math.round(option.scale * 100)}% size
+                            </Typography>
+                          </Box>
+                        }
+                      />
+                    ))}
+                  </RadioGroup>
+                </FormControl>
+              </Box>
+            </Stack>
+          </MainCard>
+        </Grid>
 
-            <Divider />
-
-            {/* Text Size */}
-            <Box>
-              <FormControl component="fieldset" fullWidth>
-                <FormLabel component="legend">
-                  <Typography variant="subtitle1" gutterBottom>
-                    Text Size
-                  </Typography>
-                </FormLabel>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
-                  Current: {textSizeLabel}
+        {/* Portfolio Settings */}
+        <Grid item xs={12} lg={6}>
+          <MainCard title="Portfolio Settings">
+            <Stack spacing={3}>
+              {/* Refresh Interval */}
+              <Box>
+                <Typography variant="subtitle1" gutterBottom>
+                  Data Refresh Interval
                 </Typography>
-                <RadioGroup
-                  value={textSize}
-                  onChange={(e) => changeTextSize(e.target.value)}
-                  name="text-size-group"
-                >
-                  {textSizeOptions.map((option) => (
-                    <FormControlLabel
-                      key={option.value}
-                      value={option.value}
-                      control={<Radio />}
-                      label={
-                        <Box>
-                          <Typography 
-                            variant="body2" 
-                            sx={{ fontSize: `${0.875 * option.scale}rem` }}
-                          >
-                            {option.label}
-                          </Typography>
-                          <Typography 
-                            variant="caption" 
-                            color="text.secondary"
-                            sx={{ fontSize: `${0.75 * option.scale}rem` }}
-                          >
-                            Sample text at {Math.round(option.scale * 100)}% size
-                          </Typography>
-                        </Box>
-                      }
+                <Typography variant="body2" color="text.secondary" gutterBottom>
+                  {localPreferences.refreshInterval / 1000} seconds
+                </Typography>
+                <Slider
+                  value={localPreferences.refreshInterval / 1000}
+                  onChange={(e, value) => handlePreferenceChange('refreshInterval', value * 1000)}
+                  min={10}
+                  max={300}
+                  step={10}
+                  marks={[
+                    { value: 10, label: '10s' },
+                    { value: 30, label: '30s' },
+                    { value: 60, label: '1m' },
+                    { value: 300, label: '5m' }
+                  ]}
+                  valueLabelDisplay="auto"
+                  valueLabelFormat={(value) => `${value}s`}
+                />
+              </Box>
+
+              <Divider />
+
+              {/* Risk Thresholds */}
+              <Box>
+                <Typography variant="subtitle1" gutterBottom>
+                  Risk Alert Thresholds
+                </Typography>
+                
+                <Stack spacing={2}>
+                  <Box>
+                    <Typography variant="body2" gutterBottom>
+                      Maximum Drawdown: {(localPreferences.riskThresholds.maxDrawdown * 100).toFixed(0)}%
+                    </Typography>
+                    <Slider
+                      value={localPreferences.riskThresholds.maxDrawdown}
+                      onChange={(e, value) => handleRiskThresholdChange('maxDrawdown', value)}
+                      min={0.05}
+                      max={0.5}
+                      step={0.01}
+                      valueLabelDisplay="auto"
+                      valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
                     />
-                  ))}
-                </RadioGroup>
-              </FormControl>
-            </Box>
+                  </Box>
+
+                  <Box>
+                    <Typography variant="body2" gutterBottom>
+                      Portfolio Volatility: {(localPreferences.riskThresholds.volatility * 100).toFixed(0)}%
+                    </Typography>
+                    <Slider
+                      value={localPreferences.riskThresholds.volatility}
+                      onChange={(e, value) => handleRiskThresholdChange('volatility', value)}
+                      min={0.1}
+                      max={0.8}
+                      step={0.01}
+                      valueLabelDisplay="auto"
+                      valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
+                    />
+                  </Box>
+
+                  <Box>
+                    <Typography variant="body2" gutterBottom>
+                      Position Concentration: {(localPreferences.riskThresholds.concentration * 100).toFixed(0)}%
+                    </Typography>
+                    <Slider
+                      value={localPreferences.riskThresholds.concentration}
+                      onChange={(e, value) => handleRiskThresholdChange('concentration', value)}
+                      min={0.1}
+                      max={0.8}
+                      step={0.01}
+                      valueLabelDisplay="auto"
+                      valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
+                    />
+                  </Box>
+                </Stack>
+              </Box>
+            </Stack>
+          </MainCard>
+        </Grid>
+
+        {/* Action Buttons */}
+        <Grid item xs={12}>
+          <Stack direction="row" spacing={2} justifyContent="flex-end">
+            <Button
+              variant="outlined"
+              startIcon={<ReloadOutlined />}
+              onClick={handleReset}
+            >
+              Reset to Defaults
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<SaveOutlined />}
+              onClick={handleSave}
+            >
+              Save Settings
+            </Button>
           </Stack>
-        </MainCard>
+        </Grid>
+
+        {/* Preview Card */}
+        <Grid item xs={12}>
+          <MainCard title="Preview">
+            <Typography variant="body1" paragraph>
+              This is a preview of how text will appear with your current settings. 
+              The text size setting affects all typography throughout the application, 
+              including headings, body text, buttons, and form elements.
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              Sample Heading
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Sample secondary text with current text size: {textSizeLabel}
+            </Typography>
+          </MainCard>
+        </Grid>
       </Grid>
-
-      {/* Portfolio Settings */}
-      <Grid xs={12} lg={6}>
-        <MainCard title="Portfolio Settings">
-          <Stack spacing={3}>
-            {/* Refresh Interval */}
-            <Box>
-              <Typography variant="subtitle1" gutterBottom>
-                Data Refresh Interval
-              </Typography>
-              <Typography variant="body2" color="text.secondary" gutterBottom>
-                {localPreferences.refreshInterval / 1000} seconds
-              </Typography>
-              <Slider
-                value={localPreferences.refreshInterval / 1000}
-                onChange={(e, value) => handlePreferenceChange('refreshInterval', value * 1000)}
-                min={10}
-                max={300}
-                step={10}
-                marks={[
-                  { value: 10, label: '10s' },
-                  { value: 30, label: '30s' },
-                  { value: 60, label: '1m' },
-                  { value: 300, label: '5m' }
-                ]}
-                valueLabelDisplay="auto"
-                valueLabelFormat={(value) => `${value}s`}
-              />
-            </Box>
-
-            <Divider />
-
-            {/* Risk Thresholds */}
-            <Box>
-              <Typography variant="subtitle1" gutterBottom>
-                Risk Alert Thresholds
-              </Typography>
-              
-              <Stack spacing={2}>
-                <Box>
-                  <Typography variant="body2" gutterBottom>
-                    Maximum Drawdown: {(localPreferences.riskThresholds.maxDrawdown * 100).toFixed(0)}%
-                  </Typography>
-                  <Slider
-                    value={localPreferences.riskThresholds.maxDrawdown}
-                    onChange={(e, value) => handleRiskThresholdChange('maxDrawdown', value)}
-                    min={0.05}
-                    max={0.5}
-                    step={0.01}
-                    valueLabelDisplay="auto"
-                    valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
-                  />
-                </Box>
-
-                <Box>
-                  <Typography variant="body2" gutterBottom>
-                    Portfolio Volatility: {(localPreferences.riskThresholds.volatility * 100).toFixed(0)}%
-                  </Typography>
-                  <Slider
-                    value={localPreferences.riskThresholds.volatility}
-                    onChange={(e, value) => handleRiskThresholdChange('volatility', value)}
-                    min={0.1}
-                    max={0.8}
-                    step={0.01}
-                    valueLabelDisplay="auto"
-                    valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
-                  />
-                </Box>
-
-                <Box>
-                  <Typography variant="body2" gutterBottom>
-                    Position Concentration: {(localPreferences.riskThresholds.concentration * 100).toFixed(0)}%
-                  </Typography>
-                  <Slider
-                    value={localPreferences.riskThresholds.concentration}
-                    onChange={(e, value) => handleRiskThresholdChange('concentration', value)}
-                    min={0.1}
-                    max={0.8}
-                    step={0.01}
-                    valueLabelDisplay="auto"
-                    valueLabelFormat={(value) => `${(value * 100).toFixed(0)}%`}
-                  />
-                </Box>
-              </Stack>
-            </Box>
-          </Stack>
-        </MainCard>
-      </Grid>
-
-      {/* Action Buttons */}
-      <Grid xs={12}>
-        <Stack direction="row" spacing={2} justifyContent="flex-end">
-          <Button
-            variant="outlined"
-            startIcon={<ReloadOutlined />}
-            onClick={handleReset}
-          >
-            Reset to Defaults
-          </Button>
-          <Button
-            variant="contained"
-            startIcon={<SaveOutlined />}
-            onClick={handleSave}
-          >
-            Save Settings
-          </Button>
-        </Stack>
-      </Grid>
-
-      {/* Preview Card */}
-      <Grid xs={12}>
-        <MainCard title="Preview">
-          <Typography variant="body1" paragraph>
-            This is a preview of how text will appear with your current settings. 
-            The text size setting affects all typography throughout the application, 
-            including headings, body text, buttons, and form elements.
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            Sample Heading
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Sample secondary text with current text size: {textSizeLabel}
-          </Typography>
-        </MainCard>
-      </Grid>
-    </Grid>
+    </Box>
   );
 }

@@ -61,7 +61,7 @@ export default function SectorAllocation({ riskMetrics }) {
 
   return (
     <MainCard title="Sector Allocation">
-      <Box sx={{ height: 400 }}>
+      <Box sx={{ height: 400, width: '100%' }}>
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -69,8 +69,8 @@ export default function SectorAllocation({ riskMetrics }) {
               cx="50%"
               cy="50%"
               labelLine={false}
-              label={({ name, value }) => `${name}: ${value.toFixed(1)}%`}
-              outerRadius={120}
+              label={({ name, value }) => value > 5 ? `${name}: ${value.toFixed(1)}%` : ''}
+              outerRadius={100}
               fill="#8884d8"
               dataKey="value"
             >
@@ -79,7 +79,10 @@ export default function SectorAllocation({ riskMetrics }) {
               ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
-            <Legend />
+            <Legend 
+              wrapperStyle={{ fontSize: '12px' }}
+              iconSize={8}
+            />
           </PieChart>
         </ResponsiveContainer>
       </Box>

@@ -117,6 +117,7 @@ export default function PortfolioPerformance({ portfolio }) {
               variant={timeRange === range.value ? 'contained' : 'outlined'}
               onClick={() => setTimeRange(range.value)}
               disabled={loading}
+              sx={{ minWidth: 'auto', px: 1 }}
             >
               {range.label}
             </Button>
@@ -129,7 +130,7 @@ export default function PortfolioPerformance({ portfolio }) {
           No portfolio data available
         </Typography>
       ) : (
-        <Box sx={{ height: 400 }}>
+        <Box sx={{ height: 400, width: '100%' }}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={performanceData}>
               <CartesianGrid strokeDasharray="3 3" stroke={theme.palette.divider} />
